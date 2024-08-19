@@ -1,0 +1,125 @@
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #navbar{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: gray;
+    align-items: center;
+  }
+  
+  #links a{
+    padding: 15px;
+    text-decoration: none;
+  }
+  
+  #logo, #links{
+    margin-left: 2%;
+  }
+  
+  #logo h1{
+    color: white;
+    font-weight: bold;
+  }
+  
+  #corpo{
+    display: flex;
+    margin-bottom: 50px;
+    padding-top: 100px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #corpo button{
+    background: green;
+    padding: 20px;
+    margin-top: 40px;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  #corpo h1{
+    font-weight: bold;
+  }
+  #sucesso{
+    background: #00FF00;
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  #card{
+    margin-right: 50px;
+    padding: 20px;
+    background: whitesmoke;
+    border-radius: 7px;
+    margin-top: 20px;
+    border: 1px solid gray;
+    margin-left: 50px;
+  }
+  
+  #card h2, small,p{
+    margin: 15px;
+  }
+  
+  #id{
+    font-weight: bold;
+    background: green;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+  }
+  #disp{
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+  }
+  
+  #disp button{
+    margin: 5px;
+  }
+  
+</style>
+
+<nav id="navbar">
+  <div id="logo">
+    <h1>BlogDoDev</h1>
+  </div>
+  <div id="links">
+    <a href="#">Home</a>
+    <a href="#">Postagens</a>
+    <a href="#">Cadastros</a>
+  </div>
+</nav>
+{{#if suc_msg}}
+  <div id="sucesso">{{suc_msg}}</div>
+{{/if}}
+<div id="corpo">
+  <h1>Lista de categorias</h1>
+  <a href="/blog/categorias/add">
+    <button>Nova categoria</button>
+  </a>
+</div>
+{{#each categ}}
+   <div id="card">
+     <h2>Categoria: {{Nome}}</h2>
+     <p>Slug: {{Slug}}</p>
+     <small>Data: {{Data}}</small>
+    <div id="disp">
+     <a href="/blog/categorias/add/edit/{{id}}">
+       <button id="id">Editar</button>
+       </a>
+       <div>
+       <a  href="/blog/delete/{{id}}">
+         
+         <button id="id">Deletar</button>
+       </a>
+       </div>
+     </div>
+  </div>
+{{/each}}

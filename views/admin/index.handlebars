@@ -1,0 +1,51 @@
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #navbar{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: gray;
+    align-items: center;
+  }
+  
+  #links a{
+    padding: 15px;
+    text-decoration: none;
+  }
+  
+  #logo, #links{
+    margin-left: 2%;
+  }
+  
+  #logo h1{
+    color: white;
+    font-weight: bold;
+  }
+  
+  #erro{
+    background: #FF0000;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+<nav id="navbar">
+  <div id="logo">
+    <h1>BlogDoDev</h1>
+  </div>
+  <div id="links">
+    <a href="#">Home</a>
+    <a href="#">Postagens</a>
+    <a href="#">Cadastros</a>
+  </div>
+</nav>
+{{#if error_msg}}
+  <div id="erro">
+    {{error_msg}}
+  </div>
+{{/if}}

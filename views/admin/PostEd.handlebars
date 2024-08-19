@@ -1,0 +1,115 @@
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    height: 100vh;
+  }
+  #navbar{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: gray;
+    align-items: center;
+  }
+  
+  #links a{
+    padding: 15px;
+    text-decoration: none;
+  }
+  
+  #logo, #links{
+    margin-left: 2%;
+  }
+  
+  #logo h1{
+    color: white;
+    font-weight: bold;
+  }
+   
+  form{
+    display: flex;
+    padding: 20px;
+    margin-left: 50px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 50px;
+    border: 2px solid gray;
+    background: transparent;
+    flex-direction: column;
+  }
+  
+  #ca{
+    padding-top: 50px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  form input, textarea{
+    padding:30px;
+    border-radius: 7px;
+    margin: 10px;
+  }
+  
+  #sel{
+    padding: 10px 100px;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  
+  #pe{
+    text-align: left;
+    margin-bottom: 10px;
+  }
+  form button{
+    background: green;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    margin-top: 16px;
+  }
+  
+  #tex{
+    background: #FF0000;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  
+</style>
+
+<nav id="navbar">
+  <div id="logo">
+    <h1>BlogDoDev</h1>
+  </div>
+  <div id="links">
+    <a href="#">Home</a>
+    <a href="#">Postagens</a>
+    <a href="#">Cadastros</a>
+  </div>
+</nav>
+{{#each erros}}
+  <div id="tex">{{texto}}</div>
+{{/each}}
+<h1 id="ca">Criar Postagem</h1>
+<form action="/blog/editarPo/{{postagens.id}}" method="post">
+  <input value="{{postagens.Titulo}}" required id="cat" name="Titulo" type="text" placeholder="Digite o Titulo">
+  <input value="{{postagens.Slug}}" required id="slu" name="Slug" type="text" placeholder="Digite seu Slug">
+  <input value="{{postagens.Descricao}}" required name="Desc" type="text" placeholder="Digite a discricão">
+  <input value="{{postagens.Conteudo}}" placeholder="Publique o que estás a pensar" name="Conteu">
+  <p>Selecione a sua categoria</p>
+  <select name="Cat" id="sel">
+    <option value="{{postagens.Categoria}}">{{postagens.Categoria}}</option>
+  </select>
+  <dv>
+  <button type="submit">Editar Postagem</button>
+  </dv>
+</form>

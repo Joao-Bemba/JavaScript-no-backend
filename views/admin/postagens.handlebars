@@ -1,0 +1,137 @@
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  #navbar{
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    background: gray;
+    align-items: center;
+  }
+  
+  #links a{
+    padding: 15px;
+    text-decoration: none;
+  }
+  
+  #logo, #links{
+    margin-left: 2%;
+  }
+  
+  #logo h1{
+    color: white;
+    font-weight: bold;
+  }
+  
+  #corpo{
+    display: flex;
+    margin-bottom: 50px;
+    padding-top: 100px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  #corpo button{
+    background: green;
+    padding: 20px;
+    margin-top: 40px;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  #corpo h1{
+    font-weight: bold;
+  }
+  #sucesso{
+    background: #00FF00;
+    padding: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  #card{
+    margin-right: 50px;
+    padding: 20px;
+    background: whitesmoke;
+    border-radius: 7px;
+    margin-top: 20px;
+    border: 1px solid gray;
+    margin-left: 50px;
+  }
+  
+  #id{
+    font-weight: bold;
+    background: green;
+    border-radius: 5px;
+    padding: 20px;
+    color: white;
+  }
+  #disp{
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+  }
+  
+  #disp button{
+    margin: 5px;
+  }
+  #corp2{
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #corp2 h2, h3, h4, p{
+    margin-top: 20px;
+  }
+  
+  
+</style>
+
+<nav id="navbar">
+  <div id="logo">
+    <h1>BlogDoDev</h1>
+  </div>
+  <div id="links">
+    <a href="#">Home</a>
+    <a href="#">Postagens</a>
+    <a href="#">Cadastros</a>
+  </div>
+</nav>
+{{#if suc_msg}}
+  <div id="sucesso">{{suc_msg}}</div>
+{{/if}}
+<div id="corpo">
+  <h1>Lista de Postagens</h1>
+  <a href="/blog/CriarPost/">
+    <button>Nova Postagem</button>
+  </a>
+</div>
+
+{{#each postagens}}
+   <div id="card">
+  <div id="corp2">
+     <h1>Titulo: {{Titulo}}</h1>
+     <p>Slug: {{Slug}}</p>
+     <strong><p>Descricão: {{Descricao}}</p></strong>
+     <p>Conteudo: {{Conteudo}}</p>
+     <p>Categoria: {{Categoria}}</p>
+  </div>
+    <div id="disp">
+     <a href="/blog/editarPost/{{id}}">
+       <button id="id">Editar</button>
+       </a>
+       <div>
+       <a  href="/blog/EliPost/{{id}}">
+         
+         <button id="id">Deletar</button>
+       </a>
+       </div>
+     </div>
+  </div>
+{{/each}}
+
